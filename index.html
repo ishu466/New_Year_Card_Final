@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 | For My Sakshi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #ff4d79;
+            --secondary: #ff85a2;
+            --dark: #0f050a;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--dark); color: white; font-family: 'Plus Jakarta Sans', sans-serif; overflow: hidden; scroll-behavior: smooth; }
+
+        /* --- ENTRY OVERLAY --- */
+        #entry-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #2e0a1a 0%, #050505 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1.2s ease;
+        }
+
+        .enter-heart {
+            background: none; border: none; color: var(--primary);
+            font-size: 6rem; cursor: pointer;
+            animation: heartBeat 1.5s infinite;
+            filter: drop-shadow(0 0 20px var(--primary));
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1.1); }
+            45% { transform: scale(1.4); }
+        }
+
+        /* --- BACKGROUND & CONTENT --- */
+        #main-content { opacity: 0; transition: opacity 2s ease; }
+        #heart-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        .bg-heart {
+            position: absolute; color: var(--primary);
+            filter: drop-shadow(0 0 8px var(--primary));
+            animation: move linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px; text-align: center; }
+        .glass-panel { background: var(--glass); backdrop-filter: blur(25px); border: 1px solid var(--glass-border); border-radius: 40px; padding: 60px 40px; width: 100%; max-width: 1000px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+
+        h1 { font-size: clamp(3.5rem, 10vw, 6rem); background: linear-gradient(45deg, #ff3366, #ffacbc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+        h2 { font-family: 'Dancing Script', cursive; font-size: clamp(2.5rem, 5vw, 4rem); color: var(--secondary); margin-bottom: 25px; }
+        p { font-size: 1.2rem; line-height: 1.8; color: #ccc; max-width: 700px; margin: 0 auto; }
+
+        /* --- PHOTO GALLERY --- */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .photo-card { background: white; padding: 12px 12px 45px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.5); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform: rotate(-2deg); }
+        .photo-card:nth-child(even) { transform: rotate(3deg); }
+        .photo-card:hover { transform: scale(1.08) rotate(0deg); z-index: 10; }
+        .photo-card img { width: 100%; height: 320px; object-fit: cover; }
+        .photo-label { color: #333; font-family: 'Dancing Script', cursive; font-size: 1.5rem; margin-top: 15px; }
+
+        .reasons { text-align: left; display: inline-block; margin-top: 30px; }
+        .reason-item { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-size: 1.25rem; font-family: 'Quicksand'; }
+        .heart-icon { color: var(--primary); font-size: 1.5rem; }
+
+        .btn { display: inline-block; margin-top: 40px; padding: 18px 45px; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; text-decoration: none; border-radius: 100px; font-weight: bold; box-shadow: 0 10px 30px rgba(255, 51, 102, 0.4); transition: 0.3s; }
+        .btn:hover { transform: scale(1.1) translateY(-3px); }
+        footer { padding: 50px; text-align: center; color: var(--secondary); font-family: 'Quicksand'; }
+    </style>
+</head>
+<body>
+
+    <div id="entry-overlay" onclick="startStory()">
+        <button class="enter-heart">❤</button>
+        <p style="margin-top: 20px; letter-spacing: 5px; color: var(--secondary);">TAP THE HREAT SAKSHI💗✨️</p>
+    </div>
+
+    <div id="main-content">
+        <div id="heart-bg"></div>
+        <audio id="bgMusic" loop>
+            <source src="https://files.catbox.moe/myg3qt.mp3" type="audio/mpeg">
+        </audio>
+
+        <section>
+            <div class="glass-panel">
+                <p style="letter-spacing: 5px; text-transform: uppercase; font-size: 0.9rem;">To the girl who owns my heart</p>
+                <h1>Sakshi</h1>
+                <h2>Happy New Year 2026</h2>
+                <p>A new year is just another 365 days to love you more than I did the year before. Let's make this one unforgettable.</p>
+                <a href="#memories" class="btn">Scroll for a Surprise ✨</a>
+            </div>
+        </section>
+
+        <section id="memories">
+            <div style="width: 100%; max-width: 1100px;">
+                <h2 style="color: white; font-family: 'Plus Jakarta Sans'; font-size: 3rem; margin-bottom: 50px;">My Princess 💗👑</h2>
+                <div class="gallery">
+                    <div class="photo-card"><img src="https://i.ibb.co/Rk3VyhzM/Picsart-25-12-25-16-40-51-222.jpg"><div class="photo-label">Pretty Girl...🥰💖</div></div>
+                    <div class="photo-card"><img src="https://i.ibb.co/TxgWG3t2/Picsart-25-12-25-16-46-03-369.jpg"><div class="photo-label">Your beautiful smile...💗</div></div>
+                    <div class="photo-card"><img src="https://i.ibb.co/Vp5mWvYt/Picsart-25-12-25-16-36-12-344.jpg"><div class="photo-label">Your Eyes..👀💗🫠</div></div>
+                    <div class="photo-card"><img src="https://i.ibb.co/8DGNWwPD/Picsart-25-12-25-16-43-41-588.jpg"><div class="photo-label">My Queen...🤗💖👑</div></div>
+                    <div class="photo-card"><img src="https://i.ibb.co/7NbsF1wS/Picsart-25-12-25-17-50-05-178.jpg"><div class="photo-label">💖💖💗💗🥰</div></div>
+                    <div class="photo-card"><img src="https://i.ibb.co/kbRthrC/Picsart-25-12-25-16-46-59-328.jpg"><div class="photo-label">Your dearest hubby...😅😍</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="glass-panel">
+                <h2>Why it's always you...</h2>
+                <div class="reasons">
+                    <div class="reason-item"><span class="heart-icon">❤</span> The way you laugh at the smallest things.❤️🥰</div>
+                    <div class="reason-item"><span class="heart-icon">❤</span> How you make me feel happy every time.☺️💓</div>
+                    <div class="reason-item"><span class="heart-icon">❤</span> Your kindness, your love, and your soul.💫😳</div>
+                    <div class="reason-item"><span class="heart-icon">❤</span> I'm so happy that you came into my life.🤗🥰</div>
+                    <div class="reason-item"><span class="heart-icon">❤</span> Because you are Sakshi, and that's enough.🫣💗</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="glass-panel">
+                <h2>The simple truth💗✨️...</h2>
+                <div class="reasons">
+                    <div class="reason-item"><span class="heart-icon">🌸</span> Every time I look at you, I fall in love more.😍🤗</div>
+                    <div class="reason-item"><span class="heart-icon">🌸</span> Kuch chehre humesha muskurate hue acche lagte, unme se ek tumhara hai.🤭🥰</div>
+                    <div class="reason-item"><span class="heart-icon">🌸</span> Jab bhi main tumhare sath hota hu, to lagta hai duniya jeet liya hu.💞🫀</div>
+                    <div class="reason-item"><span class="heart-icon">🌸</span> Bss is janam mein nhin Har janam mein bas tumhara hi sath chahiye.♾️💗✨️</div>
+                    <div class="reason-item"><span class="heart-icon">🌸</span> Last but not least: I love you forever.♾️💗</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="glass-panel">
+                <h1>My Promise</h1>
+                <p style="font-size: 1.4rem;">In 2026, I promise to be your biggest supporter, your best friend(BF), and the one who never stops loving and trying to win your heart every single day💗✨️.</p>
+                <br>
+                <h2 style="font-size: clamp(3rem, 8vw, 5rem);">I Love You so much, Sakshi.</h2>
+            </div>
+        </section>
+
+        <footer> ©️ Crafted with Love for Sakshi by Ishan 💕 </footer>
+    </div>
+
+    <script>
+        function startStory() {
+            document.getElementById('bgMusic').play();
+            const overlay = document.getElementById('entry-overlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => { 
+                overlay.style.display = 'none'; 
+                document.body.style.overflow = 'auto'; 
+                document.getElementById('main-content').style.opacity = '1';
+            }, 1200);
+        }
+
+        const bg = document.getElementById('heart-bg');
+        for (let i = 0; i < 50; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'bg-heart';
+            heart.innerHTML = ['❤', '💖', '✨', '🌸'][Math.floor(Math.random() * 4)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 8 + 7) + 's';
+            heart.style.animationDelay = Math.random() * 10 + 's';
+            bg.appendChild(heart);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
